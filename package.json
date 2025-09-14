@@ -1,5 +1,23 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
+    "name": "ordine-degli-avvocati",
+    "version": "1.0.0",
+    "description": "Ordine degli Avvocati management system built with Laravel",
+    "author": {
+        "name": "Ayat Haidari",
+        "email": "ayat@servicematica.com",
+        "url": "https://servicematica.com"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/akabuli/ordine-delig-avvocati-api",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akabuli/ordine-delig-avvocati-api.git"
+    },
+    "bugs": {
+        "url": "https://github.com/akabuli/ordine-delig-avvocati-api/issues"
+    },
+    "keywords": ["laravel", "lawyers", "management", "php"],
     "private": true,
     "type": "module",
     "scripts": {
