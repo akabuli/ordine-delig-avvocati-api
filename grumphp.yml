@@ -1,7 +1,7 @@
 grumphp:
   environment:
     variables:
-      APP_ENV: ${APP_ENV}
+      APP_ENV: "${APP_ENV}"
   stop_on_failure: true
   tasks:
     phpstan:
