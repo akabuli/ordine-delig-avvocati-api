@@ -15,7 +15,7 @@ abstract class Controller
         }
         // $undefinedVariable = 0;
         // Using undefined variable - will cause error
-        $result = $undefinedVariable333 + 5;
+        $result = $undefinedVari3able333 + 5;
 
         // Wrong type operations - string * number
         $number = 2;
