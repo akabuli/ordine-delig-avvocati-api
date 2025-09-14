@@ -1,8 +1,12 @@
 grumphp:
   environment:
     variables:
+      APP_ENV: development
   stop_on_failure: true
   tasks:
+    pint:
+      config: ./pint.json
+      triggered_by: ["php"]
     phpstan:
       configuration: phpstan.neon
       memory_limit: "1G"
