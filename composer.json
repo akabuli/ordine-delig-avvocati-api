@@ -55,7 +55,11 @@
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
         "analyse": "phpstan analyse",
-        "pre-commit": "phpstan analyse --error-format=table",
+        "pre-commit": [
+        "@php -r \"$env = getenv('APP_ENV'); if (!$env) { echo 'Error: Please specify APP_ENV environment variable\\n'; exit(1); } if (!file_exists('.env.' . $env)) { echo 'Environment file .env.' . $env . ' not found\\n'; exit(1); } putenv('APP_ENV=' . $env); echo 'Using environment: ' . $env . '\\n';\"",
+        "phpstan analyse --error-format=table --no-progress",
+        "vendor/bin/grumphp run"
+    ],
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
