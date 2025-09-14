@@ -1,15 +1,18 @@
 grumphp:
-  hooks_preset: local
-  stop_on_failure: true
-  ignore_unstaged_changes: false
-  process_timeout: 120
   tasks:
     phpstan:
       configuration: phpstan.neon
       memory_limit: "1G"
-      level: max
-      force_patterns: []
+    phplint:
+      exclude: []
+      jobs: ~
+      short_open_tag: false
       ignore_patterns: []
-      triggered_by: ["php"]
-  git_hook_variables:
-    EXEC_GRUMPHP_COMMAND: "exec"
+      triggered_by: ["php", "phtml"]
+    composer:
+      file: ./composer.json
+      no_check_all: false
+      no_check_lock: false
+      no_check_publish: false
+      with_dependencies: false
+      strict: false
