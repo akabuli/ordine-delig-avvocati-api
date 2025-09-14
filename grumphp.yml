@@ -1,18 +1,18 @@
 grumphp:
+  environment:
+    variables:
+      APP_ENV: getenv('APP_ENV')
+  stop_on_failure: true
   tasks:
     phpstan:
       configuration: phpstan.neon
       memory_limit: "1G"
-    # phplint:
-    #   exclude: []
-    #   jobs: ~
-    #   short_open_tag: false
-    #   ignore_patterns: []
-    #   triggered_by: ["php", "phtml"]
+      force_patterns: ["*.php"]
+      triggered_by: ["php"]
     composer:
       file: ./composer.json
-      no_check_all: false
+      no_check_all: true
       no_check_lock: false
-      no_check_publish: false
+      no_check_publish: true
       with_dependencies: false
       strict: true
