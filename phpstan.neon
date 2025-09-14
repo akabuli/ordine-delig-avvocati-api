@@ -3,12 +3,11 @@ includes:
     - vendor/nesbot/carbon/extension.neon
 
 parameters:
-
     paths:
         - app/
 
-    # Level 10 is the highest level
-    level: 5
+    # Increase to level 8 or 9 for stricter analysis
+    level: 8
 
 #    ignoreErrors:
 #        - '#PHPDoc tag @var#'

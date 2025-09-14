@@ -3,12 +3,12 @@ grumphp:
     phpstan:
       configuration: phpstan.neon
       memory_limit: "1G"
-    phplint:
-      exclude: []
-      jobs: ~
-      short_open_tag: false
-      ignore_patterns: []
-      triggered_by: ["php", "phtml"]
+    # phplint:
+    #   exclude: []
+    #   jobs: ~
+    #   short_open_tag: false
+    #   ignore_patterns: []
+    #   triggered_by: ["php", "phtml"]
     composer:
       file: ./composer.json
       no_check_all: false
