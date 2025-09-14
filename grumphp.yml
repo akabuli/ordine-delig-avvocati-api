@@ -15,4 +15,4 @@ grumphp:
       no_check_lock: false
       no_check_publish: false
       with_dependencies: false
-      strict: false
+      strict: true
