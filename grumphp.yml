@@ -4,8 +4,9 @@ grumphp:
       APP_ENV: development
   stop_on_failure: true
   tasks:
-    pint:
-      config: ./pint.json
+    shell:
+      scripts:
+        - "composer run pint-check"
       triggered_by: ["php"]
     phpstan:
       configuration: phpstan.neon

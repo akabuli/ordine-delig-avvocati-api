@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
 // import User modlel
-use Illuminate\Http\Request;
 use App\Models\User;
 
 abstract class Controller
