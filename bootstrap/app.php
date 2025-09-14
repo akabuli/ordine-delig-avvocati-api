@@ -8,12 +8,14 @@ $environment = getenv('APP_ENV') ?? null;
 
 // Check if user selected an environment
 if (! $environment) {
-    exit('Error: Please specify an environment type using APP_ENV.\nExample: $env:APP_ENV="test"; php artisan serve\nAvailable environments: development, test, production'.PHP_EOL);
+    exit('Error: Please specify an environment type using APP_ENV.\nExample: $env:APP_ENV="test"; php artisan serve\nAvailable environments: development, test, production' . PHP_EOL);
 }
 
 if (! file_exists(__DIR__ . '/../.env.' . $environment)) {
     exit('Environment file not found');
 }
+
+echo $environment . PHP_EOL;
 
 // echo $environment . PHP_EOL;
 return Application::configure(basePath: dirname(__DIR__))
