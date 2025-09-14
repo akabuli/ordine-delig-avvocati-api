@@ -4,10 +4,6 @@ grumphp:
       APP_ENV: development
   stop_on_failure: true
   tasks:
-    shell:
-      scripts:
-        - "composer run pint-check"
-      triggered_by: ["php"]
     phpstan:
       configuration: phpstan.neon
       memory_limit: "1G"

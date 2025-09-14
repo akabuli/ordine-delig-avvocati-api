@@ -4,7 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
-$environment = getenv('APP_ENV') ?? null;
+$environment = getenv('APP_ENV');
 
 // Check if user selected an environment
 if (! $environment) {
