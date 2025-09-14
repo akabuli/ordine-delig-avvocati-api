@@ -4,10 +4,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
-
-// Force detection from current environment only
-
-
 $environment = getenv('APP_ENV') ?? null;
 
 // Check if user selected an environment
