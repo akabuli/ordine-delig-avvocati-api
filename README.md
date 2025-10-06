@@ -21,6 +21,135 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Code Quality Setup
+
+This project includes an automated code quality system that helps maintain clean, consistent code by detecting unused variables and preventing commits with code quality issues.
+
+### 🛠️ Tools Used
+
+- **PHP_CodeSniffer (PHPCS)** - Detects unused variables
+- **PHPStan** - Static analysis for type safety
+- **GrumPHP** - Git hooks integration for automated checks
+
+### 📁 Scanning Scope
+
+The code quality tools scan the following directories:
+- `app/` - Application logic
+- `config/` - Configuration files
+- `routes/` - Route definitions
+
+### 🚀 Features
+
+- ✅ **Unused Variable Detection** - Automatically finds unused variables in your code
+- ✅ **Git Integration** - Prevents commits with code quality issues
+- ✅ **Pre-commit Hooks** - Runs checks automatically before each commit
+- ✅ **Focused Scanning** - Only scans relevant directories (excludes vendor, storage, etc.)
+
+### 🔧 Configuration Files
+
+- **`phpcs.xml`** - PHP_CodeSniffer configuration for unused variable detection
+- **`phpstan.neon`** - PHPStan configuration for static analysis
+- **`grumphp.yml`** - GrumPHP configuration for git hooks
+
+### 📋 Usage
+
+#### Manual Code Quality Checks
+
+```bash
+# Run PHP_CodeSniffer
+vendor/bin/phpcs
+
+# Run PHPStan
+vendor/bin/phpstan analyse
+
+# Run all GrumPHP tasks
+vendor/bin/grumphp run
+```
+
+#### Git Integration
+
+The system automatically runs when you commit:
+
+```bash
+# This will trigger code quality checks
+git commit -m "Your commit message"
+```
+
+**If there are unused variables or other issues:**
+- ❌ Commit will be **blocked**
+- 📋 Error details will be displayed
+- 🔧 Fix the issues and try committing again
+
+**If code is clean:**
+- ✅ Commit proceeds normally
+
+#### Bypassing Checks (Not Recommended)
+
+If you need to commit despite warnings:
+
+```bash
+git commit -m "Your message" --no-verify
+```
+
+### 🎯 Ignoring Specific Rules
+
+You can ignore specific PHP_CodeSniffer rules using comments:
+
+```php
+// Ignore unused variable on next line
+// phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+$unusedVariable = 'This will be ignored';
+
+// Ignore unused variable on current line
+$unusedVariable = 'This will be ignored'; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+
+// Ignore all rules in a block
+// phpcs:disable
+$unusedVariable1 = 'ignored';
+$unusedVariable2 = 'ignored';
+// phpcs:enable
+```
+
+### 🔄 Setup Instructions
+
+The code quality system is already configured, but if you need to reinstall:
+
+1. **Install dependencies:**
+   ```bash
+   composer install
+   ```
+
+2. **Initialize git hooks:**
+   ```bash
+   vendor/bin/grumphp git:init
+   ```
+
+3. **Test the setup:**
+   ```bash
+   vendor/bin/grumphp run
+   ```
+
+### 📊 What Gets Detected
+
+- **Unused Variables** - Variables that are declared but never used
+- **Basic Static Analysis** - Type-related issues and undefined variables
+- **Laravel-specific Context** - Understands Laravel patterns and conventions
+
+### 🎨 IDE Integration
+
+For better development experience, consider installing these VS Code extensions:
+- **PHP Sniffer & Beautifier** - Real-time PHPCS integration
+- **Error Lens** - Inline error highlighting
+- **PHP Intelephense** - Advanced PHP language support
+
+### 🚨 Common Issues
+
+**Issue:** PHPStan reports "Undefined variable: $this" in routes/console.php
+**Solution:** This is a false positive. Laravel's Artisan command closures provide `$this` context, but PHPStan doesn't understand this Laravel-specific pattern.
+
+**Issue:** Want to exclude additional files/folders
+**Solution:** Update the `excludePaths` in `phpstan.neon` and `exclude-pattern` in `phpcs.xml`
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 // import User modlel
 use App\Models\User;
 
+/**
+ * @api
+ */
 abstract class Controller
 {
     public function index(): void
@@ -14,7 +17,8 @@ abstract class Controller
         if (str_contains($name, 'ayat')) {
             echo 'yes';
         }
-        $undefinedV3ariabl1e1 = 0;
+        // $undefinedVariable = 0;
+
         // // Using undefined variable - will cause error
         // $result = $undefinedV3ariable + 5;
 
