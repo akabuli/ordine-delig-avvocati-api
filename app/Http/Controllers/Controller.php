@@ -14,7 +14,7 @@ abstract class Controller
         if (str_contains($name, 'ayat')) {
             echo 'yes';
         }
-        $undefinedV3ariabl1e = 0;
+        $undefinedV3ariabl1e1 = 0;
         // // Using undefined variable - will cause error
         // $result = $undefinedV3ariable + 5;
 
