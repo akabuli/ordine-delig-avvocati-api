@@ -10,9 +10,6 @@ parameters:
     # Level 10 is the highest level
     level: 8
 
-    checkUnusedVariables: true
-    checkUnusedParameters: true
-    checkMissingIterableValueType: false
 
 #    ignoreErrors:
 #        - '#PHPDoc tag @var#'
