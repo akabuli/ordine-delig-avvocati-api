@@ -9,6 +9,9 @@ grumphp:
       memory_limit: "1G"
       force_patterns: ["*.php"]
       triggered_by: ["php"]
+    phpcs:
+      standard: phpcs.xml
+      triggered_by: ["php"]
     composer:
       file: ./composer.json
       no_check_all: true

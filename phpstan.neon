@@ -1,21 +1,27 @@
-includes:
-    - vendor/larastan/larastan/extension.neon
-    - vendor/nesbot/carbon/extension.neon
-
 parameters:
-
+    level: 5
     paths:
-        - app/
-
-    # Level 10 is the highest level
-    level: 9
-
-    # Enable unused variable detection
-    reportUnmatchedIgnoredErrors: false
-
-
-#    ignoreErrors:
-#        - '#PHPDoc tag @var#'
-#
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
+        - app
+        - config
+        - routes
+    excludePaths:
+        analyseAndScan:
+            - vendor (?)
+            - storage (?)
+            - bootstrap/cache (?)
+            - node_modules (?)
+            - bootstrap (?)
+            - database (?)
+            - public (?)
+            - resources (?)
+            - tests (?)
+        analyse:
+            - vendor (?)
+            - storage (?)
+            - bootstrap/cache (?)
+            - node_modules (?)
+            - bootstrap (?)
+            - database (?)
+            - public (?)
+            - resources (?)
+            - tests (?)
