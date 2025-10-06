@@ -9,11 +9,12 @@ abstract class Controller
 {
     public function index()
     {
+        // $name;
         $name = 'ayats';
         if (str_contains($name, 'ayat')) {
             echo 'yes';
         }
-        // $undefinedV3ariable = 0;
+        $undefinedV3ariable = 0;
         // // Using undefined variable - will cause error
         // $result = $undefinedV3ariable + 5;
 
