@@ -129,6 +129,38 @@ The code quality system is already configured, but if you need to reinstall:
    vendor/bin/grumphp run
    ```
 
+### ⚙️ Git Hooks Modification
+
+When you run `vendor/bin/grumphp git:init`, GrumPHP automatically modifies files in the `.git/hooks/` directory:
+
+#### **Files Created/Modified:**
+- **`.git/hooks/pre-commit`** - Main hook that runs code quality checks before commits
+- **`.git/hooks/commit-msg`** - Additional commit message validation hook
+
+#### **What the Pre-commit Hook Does:**
+1. 🔍 **Captures staged changes** - Gets the git diff of files being committed
+2. 🚀 **Runs GrumPHP** - Executes `vendor/bin/grumphp.bat git:pre-commit`
+3. ✅ **Allows commit** - If no code quality issues are found
+4. ❌ **Blocks commit** - If unused variables or other issues are detected
+
+#### **Important Notes:**
+- ✅ **Safe & Standard** - This is the normal way git hooks work
+- ✅ **Local Only** - Hook files are not committed to the repository
+- ✅ **Reversible** - You can remove hooks if needed
+- ✅ **Automatic** - GrumPHP handles the setup completely
+
+#### **To Remove Git Hooks (if needed):**
+```bash
+# Remove all GrumPHP hooks
+vendor/bin/grumphp git:deinit
+
+# Or manually delete specific hooks
+rm .git/hooks/pre-commit
+rm .git/hooks/commit-msg
+```
+
+This git integration is what enables the automatic commit blocking when code quality issues are detected! 🎯
+
 ### 📊 What Gets Detected
 
 - **Unused Variables** - Variables that are declared but never used
